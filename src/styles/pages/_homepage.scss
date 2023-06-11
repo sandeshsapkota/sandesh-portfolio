@@ -1,0 +1,184 @@
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header {
+  padding: 100px 0;
+  position: relative;
+  z-index: 99;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav {
+
+  &-list {
+    display: flex;
+    gap: 30px;
+  }
+
+  &-link {
+    color: inherit;
+    font-size: 21px;
+    font-weight: 500;
+    transition: .3s all;
+  }
+
+}
+
+
+.banner {
+
+  .container {
+    position: relative;
+    padding-top: 200px;
+    height: calc(100vh - 261px);
+  }
+
+  &-content {
+    display: flex;
+    gap: 80px;
+  }
+
+  &-title {
+    font-weight: 500;
+    font-size: 60px;
+    letter-spacing: -0.03em;
+    min-width: 500px;
+  }
+
+  &-desc {
+    color: #606060;
+    font-size: 32px;
+    max-width: 600px;
+    line-height: 1.17;
+    align-self: flex-end;
+    margin-bottom: -8px;
+    flex: 1;
+  }
+
+  &-btn {
+    position: absolute;
+    inset: auto auto 0 16px;
+    transition: .2s;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+
+.project {
+
+  &-section{
+    font-family: 'Orbit', sans-serif;
+
+  }
+
+  &-info{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+
+  &-desc-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0 32px;
+    //font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Orbit', sans-serif;
+  }
+
+  &-contribution{
+    color: #606060;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    width: 80%;
+    letter-spacing: 1px;
+  }
+
+  &-section {
+
+  }
+
+  &-section .container{
+    padding: 100px 0;
+    border-bottom: 1px solid #999;
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  &-img {
+    width: inherit;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+
+    img{
+      transition: .2s;
+      object-fit: cover;
+    }
+  }
+
+  &-link{
+    display: block;
+    color: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    transition: .2s;
+    text-decoration-line: underline;
+    cursor: pointer;
+    margin-top: auto;
+
+    &:hover{
+      letter-spacing: 0;
+    }
+  }
+
+}
+
+body {
+  height: 100vh;
+}
+
+
+.footer{
+  padding: 100px 0 40px;
+
+  .container{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &-name{
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #2429AF;
+  }
+}
