@@ -1,3 +1,36 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == xxl {
+    @media (max-width: 1400px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == xl {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == sm {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+}
+
+
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -38,12 +71,22 @@
   .container {
     position: relative;
     padding-top: 200px;
-    height: calc(100vh - 261px);
+    height: 600px;
+
+    @include respond(sm) {
+      height: auto;
+    }
+
   }
 
   &-content {
     display: flex;
     gap: 80px;
+
+    @include respond(sm) {
+      flex-direction: column;
+    }
+
   }
 
   &-title {
@@ -120,13 +163,18 @@
 
   &-section .container{
     padding: 100px 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #A3A3A3;
   }
 
   &-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
+
+    @include respond(sm) {
+      gap: 32px;
+      grid-template-columns: none;
+    }
   }
 
   &-img {
@@ -143,21 +191,40 @@
   }
 
   &-link{
-    display: block;
+    display: inline-flex;
+    align-self: flex-start;
     color: inherit;
     font-weight: 500;
     font-size: 18px;
     letter-spacing: -0.03em;
-    transition: .2s;
-    text-decoration-line: underline;
+    padding: 6px;
+    translate: -6px 0;
+    border-bottom: 1px solid #181717;
     cursor: pointer;
     margin-top: auto;
+    text-transform: uppercase;
+    position: relative;
 
-    &:hover{
-      letter-spacing: 0;
+
+    &:before{
+      content: '';
+      background: #ccc;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      transition: .3s ease-in-out;
+      z-index: -1;
+
+      padding-bottom: 1px;
+      box-sizing: unset;
+    }
+
+    &:hover:before{
+      width: 100%;
     }
   }
-
 }
 
 body {

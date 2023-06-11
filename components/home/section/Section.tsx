@@ -25,7 +25,7 @@ const Section = (props:SectionProps) => {
                             {desc.map((item, i) =>   <p className="project-desc" key={i}>{item}</p>)}
                         </div>
                         <p className={classNames("project-contribution")}>{contribution}</p>
-                        <a className="project-link" href={linkUrl}>{linkText}</a>
+                        <a className="project-link" href={linkUrl} target="_blank"><span>{linkText}</span></a>
                     </div>
                     <figure className="project-img">
                         <Image src={imgUrl} alt="title" loading={'lazy'} placeholder={'blur'} fill={true} blurDataURL={"/placeholder.png"}/>
