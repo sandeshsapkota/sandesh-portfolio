@@ -12,17 +12,7 @@ const RootLayout = ({children}: { children: ReactNode }) => {
     return (
             <html lang="en">
                 <body>
-                <Scrollbar
-                    className="custom-class"
-                    damping={0.07}
-                    plugins={{
-                        overscroll: {
-                            effect: "glow"
-                        } as const
-                    }}
-                >
                     {children}
-                </Scrollbar>
                 </body>
             </html>
     );

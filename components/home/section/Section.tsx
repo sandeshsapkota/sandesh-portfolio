@@ -3,15 +3,15 @@ import Image from "next/image";
 
 interface SectionProps{
     title: string,
-    desc: Array[string],
+    desc: Array<string>,
     contribution: string,
-    linkUrl: string,
-    linkText: string,
+    linkUrl?: string,
+    linkText?: string,
     imgUrl: string
 }
 
 
-const SectionComponent = (props:SectionProps) => {
+const Section = (props:SectionProps) => {
 
     const {title, desc, contribution, linkText, linkUrl, imgUrl} = props
 
@@ -36,4 +36,4 @@ const SectionComponent = (props:SectionProps) => {
     )
 }
 
-export default SectionComponent
+export default Section
