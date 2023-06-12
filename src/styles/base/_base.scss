@@ -1,0 +1,42 @@
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 16px/1.5 Orbit, sans-serif;
+
+  background: var(--color-base-bg-100);
+  color: #181717;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 5px;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  opacity: 1;
+  background: transparent;
+}
