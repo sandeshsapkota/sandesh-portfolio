@@ -3,7 +3,13 @@ import Section from "./Section";
 const Index = () => {
     return (
         <>
-
+            <Section
+                title="Enabley"
+                linkUrl={'https://enabley.io'}
+                desc={["Enabley is a complete desk-less learning platform any where at any time or any device or remotely, user can train and communicate with their team, partners, and clients with critical business knowledge."]}
+                contribution={'currently implementing the redesign of the main product.'}
+                linkText={"Visit Enabley ↗"}
+                imgUrl={"/img.png"}/>
 
             <Section title="02 | Nepal Population Census"
                      linkUrl="https://censusnepal.cbs.gov.np/results"
