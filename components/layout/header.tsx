@@ -10,9 +10,9 @@ const Header = () => {
                <Logo/>
                <nav className="nav">
                    <ul className={'nav-list'}>
-                       <li className="nav-item"><a href="#" className="nav-link">Work</a></li>
+                       <li className="nav-item"><Link href="/" className="nav-link">Work</Link></li>
                        <li className="nav-item"><Link href="/about" className="nav-link">About</Link></li>
-                       <li className="nav-item"><a href="#" className="nav-link">Blogs</a></li>
+                       <li className="nav-item"><Link href="/blogs" className="nav-link">Blogs</Link></li>
                    </ul>
                </nav>
            </div>

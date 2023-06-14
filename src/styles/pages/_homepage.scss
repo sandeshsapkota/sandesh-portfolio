@@ -176,10 +176,6 @@
     letter-spacing: 1px;
   }
 
-  &-section {
-
-  }
-
   &-section .container{
     padding: 100px 0;
     border-bottom: 1px solid #A3A3A3;
@@ -216,6 +212,8 @@
   &-link{
     display: inline-flex;
     align-self: flex-start;
+    align-items: center;
+    gap: 10px;
     color: inherit;
     font-weight: 500;
     font-size: 18px;
@@ -226,6 +224,11 @@
     margin-top: auto;
     text-transform: uppercase;
     position: relative;
+
+    svg{
+      //align-self: flex-end;
+      margin-top: 3px;
+    }
 
 
     &:before{
@@ -249,8 +252,9 @@
   }
 }
 
-body {
-  height: 100vh;
+
+.page-title{
+  padding: 200px 0;
 }
 
 
