@@ -6,12 +6,14 @@ import Footer from "@/../../components/layout/footer";
 
 export default function Main() {
     return (
-        <>
-            <Scroll/>
+        <div className="main-scrollbar">
+            <div>
+                <Scroll/>
+            </div>
             <Header/>
             <Banner/>
             <Sections/>
             <Footer/>
-        </>
+        </div>
     );
 }
