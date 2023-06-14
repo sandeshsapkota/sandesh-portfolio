@@ -11,7 +11,7 @@ const RootLayout = ({children}: { children: ReactNode }) => {
     return (
             <html lang="en">
                 <head>
-                    <title>SANDESH | Front End Developer</title>
+                    <title>SANDESH | front end developer</title>
                     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
                 </head>
                 <body>
