@@ -21,9 +21,12 @@ const options = {
 const Scroll = () => {
     useEffect(() => {
         Scrollbar.use(OverscrollPlugin);
-        Scrollbar.init(document.body.querySelector('.main-scrollbar'), options);
+        const element:HTMLElement | null= document.body.querySelector('.main-scrollbar')
+        if(element) {
+            Scrollbar.init(element, options);
+        }
         return () => {
-            if (Scrollbar) Scrollbar.destroy(document.body.querySelector('.main-scrollbar'))
+            if (Scrollbar && element) Scrollbar.destroy(element)
         }  },[])
     return null;
 }
