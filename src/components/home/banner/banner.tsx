@@ -1,5 +1,3 @@
-"use client"
-import Scrollbar from "smooth-scrollbar";
 const Banner = () => {
     return (
         <section className="banner">

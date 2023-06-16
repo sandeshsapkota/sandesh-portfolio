@@ -1,14 +1,10 @@
-import Header from "../../components/layout/header";
-import Footer from "../../components/layout/footer";
-import './../styles/index.scss'
+import RootLayout from "@/components/layout/layout";
 
 const About = () => {
     return (
-        <>
-            <Header/>
-            <h1 className="container page-title">work in progress</h1>
-            <Footer/>
-        </>
+        <RootLayout>
+            <h1 className="container page-title">Coming soon !</h1>
+        </RootLayout>
     )
 }
 

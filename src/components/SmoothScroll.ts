@@ -1,7 +1,6 @@
-"use client"
-import Scrollbar from 'smooth-scrollbar';
 import { useEffect } from 'react';
-import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+import Scrollbar from 'smooth-scrollbar';
+import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
 
 const overscrollOptions = {
     enable: true,
@@ -22,12 +21,14 @@ const Scroll = () => {
     useEffect(() => {
         Scrollbar.use(OverscrollPlugin);
         const element:HTMLElement | null= document.body.querySelector('.main-scrollbar')
+
         if(element) {
             Scrollbar.init(element, options);
         }
         return () => {
             if (Scrollbar && element) Scrollbar.destroy(element)
-        }  },[])
+        }  },
+        [])
     return null;
 }
 
