@@ -6,9 +6,12 @@
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
+}
+
+ul{
+    list-style: none;
 }
 
 
@@ -32,12 +35,6 @@ button{
     background: transparent;
     cursor: pointer;
 }
-
-
-ul{
-    list-style: none;
-}
-
 
 a{
     text-decoration: none;

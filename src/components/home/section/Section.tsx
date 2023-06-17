@@ -10,11 +10,9 @@ interface SectionProps {
     imgUrl: string
 }
 
-
 const Section = (props: SectionProps) => {
 
     const {title, desc, contribution, linkText, linkUrl, imgUrl} = props
-
 
     const Arrow = () => {
         return (

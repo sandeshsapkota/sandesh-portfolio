@@ -65,7 +65,6 @@
     color: inherit;
     font-size: 21px;
     font-weight: 500;
-    transition: .3s all;
     position: relative;
     line-height: 1;
     display: block;
@@ -79,15 +78,18 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: transparent;
+      background: black;
       position: absolute;
       top: 50%;
       translate: -16px -1px;
-      transition: .3s;
+      transition: .3s all;
+      opacity: 0;
+      visibility: hidden;
     }
 
     &-active:before{
-      background: currentColor;
+      opacity: 1;
+      visibility: visible;
     }
   }
 
