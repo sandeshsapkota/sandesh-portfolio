@@ -4,7 +4,7 @@ const Index = () => {
     return (
         <>
             <Section
-                title="Enabley"
+                title="01 | Enabley"
                 linkUrl={'https://enabley.io'}
                 desc={["Enabley is a complete desk-less learning platform any where at any time or any device or remotely, user can train and communicate with their team, partners, and clients with critical business knowledge."]}
                 contribution={'currently implementing the redesign of the main product.'}
