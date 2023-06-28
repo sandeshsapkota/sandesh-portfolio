@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
-
 body {
   height: 100vh;
   background: var(--color-base-bg-100);
-  font: 16px/1.5 Orbit, sans-serif;
+  font: 16px/1.5 'Orbit', sans-serif;
   color: #181717;
   @media (max-width: 600px) {
     padding: 0 20px;

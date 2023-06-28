@@ -2,7 +2,7 @@ import Logo from "./logo";
 
 const Header = () => {
     return (
-        <header className="footer">
+        <footer className="footer">
            <div className="container">
                <b className="footer-name">Sandesh Sapkota⏤2023</b>
                <nav className="nav">
@@ -12,7 +12,7 @@ const Header = () => {
                    </ul>
                </nav>
            </div>
-        </header>
+        </footer>
     )
 }
 
