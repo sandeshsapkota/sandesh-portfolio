@@ -15,12 +15,8 @@ const Header = () => {
             route: '/',
         },
         {
-            name: 'About',
-            route: '/about',
-        },
-        {
-            name: 'Blogs',
-            route: '/blogs',
+            name: 'Skills',
+            route: '/skills',
         },
     ]
 

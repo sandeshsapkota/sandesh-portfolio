@@ -1,4 +1,4 @@
-import './../styles/index.scss'
+import '@/assets/styles/index.scss'
 import type { NextPage } from 'next'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

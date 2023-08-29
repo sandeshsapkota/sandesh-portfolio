@@ -23,7 +23,7 @@ const Banner = () => {
                     <h1 className="banner-title">
                         Hello, I’m <br/> Sandesh Sapkota.
                     </h1>
-                    <p className="banner-desc">
+                    <p className="banner-desc mono">
                         A front end developer who is trying to specialize on best user experience
                     </p>
                 </div>
