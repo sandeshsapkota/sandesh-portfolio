@@ -139,6 +139,9 @@
     align-self: flex-end;
     margin-bottom: -8px;
     flex: 1;
+    font-weight: normal;
+    font-family: 'Quicksand', sans-serif;
+
 
     @include respond(sm) {
       font-size: 24px;
@@ -308,5 +311,33 @@
     font-size: 18px;
     letter-spacing: 2px;
     color: #2429AF;
+  }
+}
+
+/* =========================== */
+/* ======= stack item ======== */
+/* =========================== */
+
+.stack{
+
+  &__list{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 40px;
+  }
+
+  &__item{
+    padding: 16px 32px;
+    border: 2px solid #D6D6D6;
+    cursor: crosshair;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  svg{
+    width: 24px;
+    height: 24px;
   }
 }

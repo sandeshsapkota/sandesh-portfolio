@@ -5,3 +5,7 @@
   width: 100%;
   overflow: hidden;
 }
+
+.min-h-container{
+  min-height: calc(100vh - 392px);
+}

@@ -25,6 +25,7 @@ const RootLayout = ({children}: { children: ReactNode }) => {
                 <title> sapkota | front end developer</title>
                 <link rel="icon" type="image/x-icon" href="./favicon.svg"/>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbit&display=swap"/>
+                <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>
             <div className="custom-cursor">
             </div>
