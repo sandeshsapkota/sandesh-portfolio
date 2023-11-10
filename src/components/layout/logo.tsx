@@ -6,12 +6,12 @@ const Logo = (props: { fill?: string, classes?: string, background?: string }) =
     const {fill, classes, background} = props
     const router = useRouter()
 
-    const isHome = router.pathname === '/'
+    const isHome = false
 
 
 
     return (
-        <Link className={classNames('logo', classes, isHome && 'logo-gradient')}
+        <Link className={classNames('logo', classes, isHome && 'logo-gradient ent')}
              href={'/'}>
             <svg width="33" height="20" viewBox="0 0 204 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_79_52)">
