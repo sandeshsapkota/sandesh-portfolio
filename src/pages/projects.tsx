@@ -1,9 +1,13 @@
 import RootLayout from "@/components/layout/layout";
+import Sections from "@/components/home/section";
 
 const About = () => {
+
     return (
         <RootLayout>
-            <h1 className="container page-title">work in progress</h1>
+            <div className="container min-h-container">
+                <Sections/>
+            </div>
         </RootLayout>
     )
 }

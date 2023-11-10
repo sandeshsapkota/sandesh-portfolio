@@ -1,0 +1,63 @@
+
+
+
+.header {
+  //padding: 30px 0;
+  position: relative;
+  z-index: 99;
+  border-bottom: 1px solid var(--separator-color);
+
+  .logo-gradient{
+    background: linear-gradient(to top, #FFFFFF 0%, #FF5655FF 0%);
+  }
+
+  .logo {
+    height: 80px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s background-color;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav {
+
+  &-link {
+    color: inherit;
+    position: relative;
+    line-height: 1;
+    display: block;
+    font-weight: 500;
+
+    @include respond(sm) {
+      font-size: 16px;
+    }
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: black;
+      position: absolute;
+      top: 50%;
+      translate: -16px -1px;
+      transition: .3s all;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &-active:before {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+}

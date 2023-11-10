@@ -1,5 +1,8 @@
 import classNames from "classnames";
 import Image from "next/image";
+import {Tooltip} from "react-tooltip";
+// @ts-ignore
+import {copyToClipboard} from "@/utils";
 
 interface SectionProps {
     title: string,
@@ -14,32 +17,53 @@ const Section = (props: SectionProps) => {
 
     const {title, desc, contribution, linkText, linkUrl, imgUrl} = props
 
-    const Arrow = () => {
-        return (
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="18" height="18" x="0" y="0" viewBox="0 0 32 32"
-                >
-                <g><path d="M26.68 3.867H8.175a1 1 0 0 0 0 2h16.544L4.2 26.387A1 1 0 1 0 5.613 27.8l20.52-20.52v16.545a1 1 0 0 0 2 0V5.321a1.456 1.456 0 0 0-1.453-1.454z" fill="#000000"  ></path></g>
-            </svg>
-        )
-    }
-
     return (
         <section className="project-section">
-            <div className="container">
-                <div className="project-content">
-                    <div className="project-info">
+            <div className="grid gap-12 project-content">
+                <div className="project-info">
+                    <div className="h-full flex flex-col">
                         <span className={classNames("project-title")}>{title}</span>
                         <div className="project-desc-wrapper">
                             {desc.map((item, i) => <p className="project-desc" key={i}>{item}</p>)}
                         </div>
-                        <p className={classNames("project-contribution")}>{contribution}</p>
-                        <a className="project-link" href={linkUrl}
-                           target="_blank"><span>{linkText} </span> {linkUrl ? <Arrow/> : ''}</a>
+                        <p className={classNames("project-contribution -mt-2")}>{contribution}</p>
+                        <div className="mt-auto flex items-center rounded-md bg-gray-300 overflow-hidden">
+                            <Tooltip
+                                id="copy-url"
+                                place="top"
+                                content="copy url"
+                            />
+                            <Tooltip
+                                id="visit-site"
+                                place="top"
+                                content="visit site"
+                            />
+                            {linkUrl && <button
+                                data-tooltip-id="copy-url"
+                                onClick={() => copyToClipboard(linkUrl)}
+                                className="group/copy flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10"
+                            >
+                                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
+                                     className="h-5 w-5 fill-gray-500 duration-200 ease-out group-hover/copy:scale-125 group-hover/copy:fill-gray-900 max-md:h-4 max-md:w-4"
+                                     height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path>
+                                </svg>
+                            </button>}
+                            <p className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap sm:px-4 max-md:text-xs w-[240px] sm:w-auto">{linkUrl}</p>
+                            <a data-tooltip-id="visit-site"
+                               className="group/link flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10"
+                               href={linkUrl} target="_blank">
+                                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
+                                     className="h-5 w-5 fill-gray-500 duration-200 ease-out group-hover/link:scale-125 group-hover/link:fill-gray-900 max-md:h-4 max-md:w-4"
+                                     height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                                    <path
+                                        d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <figure className="project-img">
-                        <Image src={imgUrl} alt="title" loading={'lazy'} placeholder={'blur'} fill={true}
-                               blurDataURL={"/placeholder.png"}/>
-                    </figure>
                 </div>
             </div>
         </section>

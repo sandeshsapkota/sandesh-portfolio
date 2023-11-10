@@ -1,0 +1,107 @@
+
+.project {
+
+  &-section {
+    overflow: hidden;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size:  26px;
+    letter-spacing: 1px;
+  }
+
+  &-desc-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0 32px;
+    opacity: .9;
+  }
+
+  &-contribution {
+    font-size: 14px;
+    margin-bottom: 32px;
+    width: 80%;
+    opacity: .7;
+
+    @include respond(sm) {
+      width: 100%;
+    }
+
+  }
+
+  &-content {
+    grid-template-columns: 740px 1fr;
+
+    @include respond(sm) {
+      grid-template-columns: none;
+    }
+  }
+
+  &-img {
+    position: relative;
+    min-height: 350px;
+    width: 500px;
+
+    img {
+      transition: .2s;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  &-link {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    padding: 6px;
+    cursor: pointer;
+    margin-top: auto;
+    position: relative;
+
+    svg {
+      margin-top: 3px;
+    }
+
+
+    &:before {
+      content: '';
+      background: #ccc;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      transition: .3s ease-in-out;
+      z-index: -1;
+
+      padding-bottom: 1px;
+      box-sizing: unset;
+    }
+
+    &:hover:before {
+      width: 100%;
+    }
+  }
+}
+
+
+.page-title {
+  padding: 200px 0;
+}
+
+
+.copy-link{
+
+}
