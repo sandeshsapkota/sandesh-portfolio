@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
 body {
   height: 100vh;
-  background: var(--color-base-bg-100);
-  font: 16px/1.5 'Orbit', sans-serif;
-  color: #181717;
-  @media (max-width: 600px) {
-    padding: 0 20px;
-  }
+  font: 16px/1.5  'Source Sans 3', sans-serif;
+  background: rgb(229 231 235);
+  color: rgb(31 41 55);
 }
 

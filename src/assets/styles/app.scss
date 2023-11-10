@@ -1,0 +1,39 @@
+@import './vendor/vendor';
+
+@import './abstract/variable';
+@import './abstract/animation';
+
+@import './base/reset';
+@import './abstract/mixin';
+
+@import './base/base';
+
+@import "./components/scrollbar";
+
+@import "./components/header";
+@import "./components/footer";
+
+@import './base/utilities';
+
+@import './pages/homepage';
+@import './pages/project';
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

@@ -1,0 +1,91 @@
+
+.footer {
+  padding: 48px 0;
+  color: #fff;
+  border-top: 1px solid #1f2937;
+
+  @include respond(sm) {
+    padding: 40px 0 32px;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    font-weight: bold;
+
+    div {
+      opacity: .9;
+    }
+
+    span {
+      margin: 0 4px
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &-name {
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #2429AF;
+  }
+
+  &-nav-list {
+    display: flex;
+    gap: 20px;
+  }
+
+  &-nav-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+
+    &, &:before{
+      transition: .3s;
+    }
+
+    svg {
+      position: relative;
+      z-index: 1;
+      transition: .2s;
+      width: 32px;
+      height: 32px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: white;
+      border-radius: 50%;
+      scale: 0;
+    }
+
+    &:hover {
+      color: black;
+
+      svg {
+        scale: .8
+      }
+
+      &:before {
+        scale: 1;
+      }
+    }
+  }
+}

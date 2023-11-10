@@ -1,41 +1,103 @@
-import {useContext, useEffect, useState} from "react";
-import {ScrollContext} from "@/components/SmoothScroll";
+import {useEffect, useRef, useState} from "react";
+
+/**
+ * Calculate border radius based on a percentage.
+ * @param {number} percentage - The percentage value used to calculate the border radius.
+ * @returns {number} - The calculated border radius value.
+ */
+const calculateBorderRadius = (percentage: number) => {
+    const [initialValue, minimumValue] = [100, 40];
+    return Math.max(minimumValue, initialValue * (percentage / 100));
+}
 
 
-const Banner = () => {
-    const handleScrollTo:any = useContext(ScrollContext)
-    const [targetEl, setTargetEl] = useState<Element | null>(null);
+const Banner = (props: { scrollRef: any }) => {
+    /*
+    *  STATE
+    * */
+    const [bodyHeight, setBodyHeight] = useState<number | null>(null)
 
-    useEffect(() => {
-        setTargetEl(document.querySelectorAll('.project-section')[0])
-    }, []);
+    const bannerParentRef = useRef<HTMLDivElement | null>(null)
+    const bannerStickyRef = useRef<HTMLDivElement | null>(null)
+    const bannerRef = useRef<HTMLDivElement | null>(null)
+    const bannerSvgRef = useRef<any>(null)
 
-    const scrollToNextSection = () => {
-        if (!handleScrollTo || !targetEl) return
-        const top = window.scrollY + targetEl?.getBoundingClientRect().top
-        handleScrollTo(top);
+    /*
+    * HANDLERS
+    * */
+    const getBannerOffsetPercentage = () => ((bannerParentRef?.current ? bannerParentRef.current?.getBoundingClientRect().top : 0) * 100) / (bodyHeight || 1) / 3;
+
+
+    const handleScale = (percent: number) => {
+        if (bannerSvgRef?.current) {
+            /**
+             * Map a decreasing number from a given range to a new range.
+             * @param {number} originalNumber - The original number(percent) decreasing from some number to 0.
+             * @returns {number} - The mapped number in the range from 1 to 0.75.
+             */
+            const findScale = (originalNumber: number) => {
+                const initialRange = 3; // Starting number
+                const finalRangeStart = 1; // Desired starting number of the new range
+                const finalRangeEnd = 0.90; // Desired ending number of the new range
+                const percentage = 1 - (originalNumber / initialRange);
+                return  finalRangeStart - percentage * (finalRangeStart - finalRangeEnd);
+            }
+            bannerSvgRef.current.style.scale = `${findScale(percent)}`
+        }
+
     }
 
+    const setPercentage = () => {
+        if (bodyHeight) {
+            const percent = getBannerOffsetPercentage()
+            if (bannerParentRef?.current && bannerRef?.current) {
+                if (percent >= 0) {
+                    bannerRef.current.style.inset = percent + "%"
+                    bannerRef.current.style.borderRadius = calculateBorderRadius(percent) + "px"
+                    handleScale(percent)
+                } else {
+                    bannerRef.current.style.inset = "0"
+                    bannerRef.current.style.borderRadius = "0"
+                }
+            }
+        }
+    }
+
+    useEffect(() => {
+        props?.scrollRef?.current?.on("scroll", (values: any) => {
+            setPercentage()
+        });
+        if (document.documentElement.clientHeight) {
+            setBodyHeight(document.documentElement.clientHeight);
+        }
+        setPercentage()
+    }, [bodyHeight])
+
+
+    // @ts-ignore
     return (
-        <section className="banner">
-            <div className="container">
-                <div className="banner-content">
-                    <h1 className="banner-title">
-                        Hello, I’m <br/> Sandesh Sapkota.
-                    </h1>
-                    <p className="banner-desc mono">
-                        A front end developer who is trying to specialize on best user experience
-                    </p>
-                </div>
-                <button className="banner-btn" onClick={() => scrollToNextSection()}>
-                    <svg width="34" height="39" viewBox="0 0 34 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.2187 0.181824H14.4176V29.2102L3.31959 18.1122L0.0326538 21.4361L16.8182 38.2216L33.6406 21.4361L30.2798 18.1122L19.2187 29.2102V0.181824Z"
-                            fill="#181717"/>
+        <div className="h-[130vh] banner-parent sticky" ref={bannerParentRef}>
+            <div className="h-screen sticky w-full  top-0 " ref={bannerStickyRef}>
+                <section className="banner absolute flex items-center justify-center bg-black"
+                         ref={bannerRef}>
+                    <svg className="w-[200px] h-[440px] sm:w-[400px] sm:h-[640px]" width="400" height="640"
+                         viewBox="0 0 204 98" fill="none" xmlns="http://www.w3.org/2000/svg"
+                         ref={bannerSvgRef}
+                    >
+                        <g clipPath="url(#clip0_79_52)">
+                            <path
+                                d="M42.513 40.5405C40.3328 34.9344 37.0626 33.0657 33.4809 33.0657C30.2107 33.0657 26.9405 34.9344 26.9405 38.0489C26.9405 41.0077 28.8092 42.7206 32.3908 43.9664L42.6687 47.5481C54.1924 51.7527 65.8718 55.9573 65.8718 72.1527C65.8718 88.5038 49.5206 97.8474 32.7023 97.8474C17.5969 97.8474 3.42595 88.971 0 74.8L19.3099 68.7267C21.3344 73.2428 24.916 78.3817 32.7023 78.3817C37.997 78.3817 41.4229 74.9557 41.4229 71.8412C41.4229 70.284 40.1771 68.2596 36.284 66.7023L26.7847 63.2764C10.5893 57.3588 2.95878 49.1054 2.95878 37.5817C2.95878 22.4764 16.974 13.6 32.3908 13.6C48.1191 13.6 58.5527 22.1649 63.2244 35.0901L42.513 40.5405ZM138.128 15.0016H162.733V95.9787H138.128V87.8809C137.038 90.684 129.719 97.5359 117.261 97.5359C98.7298 97.5359 77.3954 84.2993 77.3954 55.3344C77.3954 27.4596 98.7298 13.6 117.261 13.6C129.719 13.6 137.038 20.7634 138.128 22.4764V15.0016ZM120.843 75.8901C130.965 75.8901 139.218 68.8825 139.218 55.3344C139.218 42.2535 130.965 35.2458 120.843 35.2458C110.253 35.2458 101.221 42.4092 101.221 55.3344C101.221 68.7267 110.253 75.8901 120.843 75.8901ZM189.985 96.7573C182.51 96.7573 176.125 90.3725 176.125 82.8977C176.125 75.2672 182.51 68.8825 189.985 68.8825C197.615 68.8825 204 75.2672 204 82.8977C204 90.3725 197.615 96.7573 189.985 96.7573Z"
+                                fill={"#fff"}/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_79_52">
+                                <rect width="204" height="97.8473" fill="#e5e7eb"/>
+                            </clipPath>
+                        </defs>
                     </svg>
-                </button>
+                </section>
             </div>
-        </section>
+        </div>
     )
 }
 

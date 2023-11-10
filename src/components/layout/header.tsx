@@ -2,8 +2,6 @@ import Logo from "./logo";
 import Link from "next/link"
 import {useRouter} from "next/router";
 import classNames from "classnames";
-import SvgOne from "./SvgFileOne.jsx.svg"
-import SvgTwo from "./SvgFileTwo.jsx.svg.jsx.svg"
 
 const Header = () => {
     const router = useRouter()
@@ -11,21 +9,21 @@ const Header = () => {
 
     const links = [
         {
-            name: 'Work',
-            route: '/',
+            name: 'Projects',
+            route: '/projects',
         },
         {
-            name: 'Skills',
-            route: '/skills',
+            name: 'Contacts',
+            route: '/contacts',
         },
     ]
 
     return (
         <header className="header">
             <div className="container">
-                <Logo/>
+                <Logo fill={"white"} background={'#FF5655FF'}/>
                 <nav className="nav">
-                    <ul className={'nav-list'}>
+                    <ul className={'flex gap-8 sm:gap-10'}>
                         {links.map(link => <li className="nav-item" key={link.route}><Link href={link.route}
                                                                                            className={classNames("nav-link", {'nav-link-active': link.route === pathname})}>{link.name}</Link>
                         </li>)}
