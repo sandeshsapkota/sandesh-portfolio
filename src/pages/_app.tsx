@@ -10,7 +10,6 @@ interface AppPropsWithLayout {
     pageProps: any
 }
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-    console.log('hello world')
     return (
         <Component {...pageProps} />
     )

@@ -2,7 +2,6 @@
 
 
 .header {
-  //padding: 30px 0;
   position: relative;
   z-index: 99;
   border-bottom: 1px solid var(--separator-color);
@@ -13,10 +12,25 @@
 
   .logo {
     height: 80px;
+    width: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: .3s background-color;
+
+    position: relative;
+
+    svg {
+      position: relative;
+    }
+  }
+
+  .logo span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 86, 85);
   }
 
   .container {

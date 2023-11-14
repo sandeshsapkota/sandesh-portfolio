@@ -19,3 +19,15 @@
     background-color: #b4b1b1 !important;
     border-radius: 0 !important;
 }
+
+body::-webkit-scrollbar {
+    width: 6px; /* Set the width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #b4b1b1;
+}

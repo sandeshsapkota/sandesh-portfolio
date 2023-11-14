@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Lenis  from '@studio-freight/lenis';
+import {useEffect} from 'react';
+import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Banner from "@/components/home/banner/banner";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import {useEffect} from "react";
+import RootLayout from "@/components/layout/layout";
 
 export default function App() {
     const scrollRef = React.useRef<any>();
@@ -34,11 +33,9 @@ export default function App() {
     }, []);
 
     return (
-        <main>
-            <Header/>
+        <RootLayout>
             <Banner scrollRef={scrollRef}/>
-            <Footer/>
-        </main>
+        </RootLayout>
     );
 }
 

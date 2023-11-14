@@ -2,9 +2,21 @@
 /* ======= stack item ======== */
 /* =========================== */
 
-.banner{
-  transition: .5s linear border-radius;
+.banner {
+  &-parent {
+    height: 150vh;
+  }
+
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+  transition: .3s border-radius;
 }
+
 
 .stack {
   &__list {
@@ -13,6 +25,7 @@
     gap: 12px;
     flex-wrap: wrap;
   }
+
   &__item {
     padding: 16px 32px;
     border: 1px solid var(--separator-color);
@@ -23,9 +36,11 @@
     @include respond(sm) {
       padding: 12px 20px;
     }
+
     svg {
       min-width: 24px;
       min-height: 24px;
+      transition: .1s scale;
     }
   }
 

@@ -21,7 +21,7 @@ const Header = () => {
     return (
         <header className="header">
             <div className="container">
-                <Logo fill={"white"}/>
+                <Logo />
                 <nav className="nav">
                     <ul className={'flex gap-8 sm:gap-10'}>
                         {links.map(link => <li className="nav-item" key={link.route}><Link href={link.route}
