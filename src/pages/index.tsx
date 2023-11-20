@@ -34,6 +34,7 @@ export default function App() {
 
     return (
         <RootLayout>
+
             <Banner scrollRef={scrollRef}/>
         </RootLayout>
     );

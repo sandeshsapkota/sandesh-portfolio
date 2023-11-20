@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import Scrollbar from "@/components/SmoothScroll";
 import * as React from "react";
 import {useRouter} from "next/router";
+import {motion, AnimatePresence} from "framer-motion";
 
 const RootLayout = ({children}: { children: ReactNode }) => {
     const router = useRouter()
@@ -23,7 +24,27 @@ const RootLayout = ({children}: { children: ReactNode }) => {
                           rel="stylesheet"/>
                 </Head>
                 <Header/>
-                {children}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={router.pathname}
+                        initial="pageInitial"
+                        animate="pageAnimate"
+                        exit="pageExit"
+                        variants={{
+                            pageInitial: {
+                                opacity: 0,
+                            },
+                            pageAnimate: {
+                                opacity: 1,
+                            },
+                            pageExit: {
+                                opacity: 0,
+                            },
+                        }}
+                    >
+                        {children}
+                    </motion.div>
+                </AnimatePresence>
                 <Footer/>
             </>
         )

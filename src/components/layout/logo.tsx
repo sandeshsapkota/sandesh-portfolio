@@ -3,31 +3,50 @@ import classNames from "classnames";
 import {useRouter} from "next/router";
 import {useEffect, useLayoutEffect, useRef} from "react";
 import {TimelineLite, Power2} from 'gsap';
+import {usePathname} from "next/navigation";
 
 const Logo = (props: { fill?: string, classes?: string, background?: string }) => {
     const {fill, classes, background} = props
     const router = useRouter()
 
     const isHome = router?.pathname === '/'
+
     const root = useRef();
-    const spanRefs = useRef([]);
+    const spanRef: any = useRef();
     const linkRef = useRef(null);
 
+    const path = usePathname()
 
     useEffect(() => {
+        const tl = new TimelineLite();
+        const isHome = router?.pathname === '/'
+
         if (isHome) {
-            const tl = new TimelineLite();
             tl.staggerFromTo(
-                spanRefs.current,
+                spanRef.current,
                 .5,
                 {top: '100%'},
                 {top: '0%', ease: Power2.easeInOut},
                 0.1
             );
-            return () => {
-                tl.kill(); // Kill the animation when the component unmounts
-            };
         }
+        const a: any = spanRef.current.style.top == '100%';
+        if (!isHome) {
+            if (a) {
+                console.log('hello')
+                tl.staggerFromTo(
+                    spanRef.current,
+                    .5,
+                    {top: '0%'},
+                    {top: '100%', ease: Power2.easeInOut},
+                    0.1
+                );
+            }
+        }
+
+        return () => {
+            tl.kill();
+        };
     }, [router.pathname]);
 
 
@@ -37,7 +56,7 @@ const Logo = (props: { fill?: string, classes?: string, background?: string }) =
             className={`logo ${classes} ${isHome && 'ent'}`}
             href="/"
         >
-            <span ref={(el) => (spanRefs.current[0] = el)}></span>
+            <span ref={spanRef}/>
             <svg width="33" height="20" viewBox="0 0 204 98" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_79_52)">
                     <path

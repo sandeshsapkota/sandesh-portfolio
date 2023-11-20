@@ -37,3 +37,6 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+div[role='tabpanel'] {
+  height: 100%;
+}
