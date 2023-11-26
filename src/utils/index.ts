@@ -1,13 +1,21 @@
 function copyToClipboard(text: string) {
     const textarea = document.createElement('textarea');
     textarea.value = text;
+    textarea.classList.add('clip-board')
     textarea.style.position = 'fixed';  // Make it invisible
     document.body.appendChild(textarea);
 
     textarea.select();
     document.execCommand('copy');
 
-    document.body.removeChild(textarea);
+    if (textarea && document.body.contains(textarea)) {
+        setTimeout(() => {
+            const textArea = document.querySelector('.clip-board')
+            if(textArea) {
+                textArea.remove()
+            }
+        }, 40);
+    }
 }
 
 
@@ -16,7 +24,6 @@ function scaleNumber(percentage: number, max: number = 80, min: number = 0) {
 }
 
 const isMobileDevice = () => {
-    console.log(navigator.userAgent)
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 

@@ -1,8 +1,7 @@
 import classNames from "classnames";
-import Image from "next/image";
-import {Tooltip} from "react-tooltip";
-// @ts-ignore
 import {copyToClipboard} from "@/utils";
+import ToolTipCustom from "@/components/tooltip";
+import {Tooltip} from "react-tooltip";
 
 interface SectionProps {
     title: string,
@@ -28,20 +27,11 @@ const Section = (props: SectionProps) => {
                         </div>
                         <p className={classNames("project-contribution -mt-2")}>{contribution}</p>
                         <div className="mt-auto flex items-center rounded-md bg-gray-300 overflow-hidden">
-                            <Tooltip
-                                id="copy-url"
-                                place="top"
-                                content="copy url"
-                            />
-                            <Tooltip
-                                id="visit-site"
-                                place="top"
-                                content="visit site"
-                            />
-                            {linkUrl && <button
-                                data-tooltip-id="copy-url"
+                            {linkUrl && <a
+                                data-tooltip-id="react-tooltip"
+                                data-tooltip-content="copy-url"
                                 onClick={() => copyToClipboard(linkUrl)}
-                                className="group/copy flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10"
+                                className="group/copy flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10 cursor-pointer"
                             >
                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
                                      className="h-5 w-5 fill-gray-500 duration-200 ease-out group-hover/copy:scale-125 group-hover/copy:fill-gray-900 max-md:h-4 max-md:w-4"
@@ -49,9 +39,10 @@ const Section = (props: SectionProps) => {
                                     <path
                                         d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path>
                                 </svg>
-                            </button>}
+                            </a>}
                             <p className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap sm:px-4 max-md:text-xs w-[240px] sm:w-auto">{linkUrl}</p>
-                            <a data-tooltip-id="visit-site"
+                            <a data-tooltip-id="react-tooltip"
+                               data-tooltip-content="visit site"
                                className="group/link flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10"
                                href={linkUrl} target="_blank">
                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"

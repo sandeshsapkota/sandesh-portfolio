@@ -22,7 +22,7 @@
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-tooltip": "^5.22.0",
+    "react-tooltip": "^5.24.0",
     "sass": "^1.62.1",
     "smooth-scrollbar": "^8.8.4",
     "smooth-scrollbar-react": "^2.4.1",

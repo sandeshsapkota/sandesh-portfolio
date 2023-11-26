@@ -1,5 +1,6 @@
 import '@/assets/styles/app.scss'
 import type { NextPage } from 'next'
+import ToolTipCustom from "@/components/tooltip";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     layout?: string
@@ -11,7 +12,9 @@ interface AppPropsWithLayout {
 }
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     return (
-        <Component {...pageProps} />
+       <>
+           <Component {...pageProps} />
+       </>
     )
 }
 

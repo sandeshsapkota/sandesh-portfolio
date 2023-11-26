@@ -6,6 +6,7 @@ import Scrollbar from "@/components/SmoothScroll";
 import * as React from "react";
 import {useRouter} from "next/router";
 import {motion, AnimatePresence} from "framer-motion";
+import CustomTooltip from "@/components/tooltip";
 
 const RootLayout = ({children}: { children: ReactNode }) => {
     const router = useRouter()
@@ -24,6 +25,7 @@ const RootLayout = ({children}: { children: ReactNode }) => {
                           rel="stylesheet"/>
                 </Head>
                 <Header/>
+
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={router.pathname}
@@ -52,11 +54,13 @@ const RootLayout = ({children}: { children: ReactNode }) => {
 
     return (
         <>
+            <CustomTooltip
+            />
             {isHome ?
                 <Content/> :
-                <Scrollbar>
+                <>
                     <Content/>
-                </Scrollbar>
+                </>
             }
         </>
     )
