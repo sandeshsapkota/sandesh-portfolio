@@ -1,33 +1,32 @@
 import Logo from "./logo";
 import {Codepen, Discord, Github, Linkedin, WhatsApp} from "@/pages/contacts";
-import classNames from "classnames";
 
 const Footer = () => {
     const socialLinks = [
         {
-            name: 'Codepen',
-            url: 'https://codepen.io/sandeshsapkota',
-            icon: <Codepen/>,
+            href: "https://www.linkedin.com/in/sandesh-sapkota/",
+            label: "sandesh-sapkota",
+            icon: Linkedin,
         },
         {
-            name: 'Github',
-            url: 'https://github.com/sandeshsapkota',
-            icon: <Github/>,
+            href: "https://api.whatsapp.com/send/?phone=9779748285477&text&type=phone_number&app_absent=0",
+            label: "+977 9748285477",
+            icon: WhatsApp,
         },
         {
-            name: 'LinkedIn',
-            url: 'https://www.linkedin.com/in/sandesh-sapkota',
-            icon: <Linkedin/>,
+            href: "https://discord.com/users/sandesh_hi",
+            label: "sandesh_hi",
+            icon: Discord,
         },
         {
-            name: 'Discord',
-            url: 'https://github.com/sandeshsapkota',
-            icon: <Discord/>,
+            href: "https://github.com/sandeshsapkota",
+            label: "sandeshsapkota",
+            icon: Github,
         },
         {
-            name: 'Whatsapp',
-            url: 'https://github.com/sandeshsapkota',
-            icon: <WhatsApp/>,
+            href: "https://codepen.io/sandeshsapkota",
+            label: "sandeshsapkota",
+            icon: Codepen,
         },
     ];
 
@@ -44,11 +43,10 @@ const Footer = () => {
                 <nav className="footer-nav -ml-3 sm:ml-auto">
                     <ul className={'footer-nav-list'}>
                         {socialLinks.map((link, index) => {
-                                const Icon = link.icon
                                 return (
                                     <li key={index} className="footer-nav-item flex items-center justify-center">
-                                        <a href={link.url} target="_blank" className="footer-nav-link">
-                                            {Icon}
+                                        <a href={link.href} target="_blank" className="footer-nav-link">
+                                            {link?.icon()}
                                         </a>
                                     </li>
                                 )
