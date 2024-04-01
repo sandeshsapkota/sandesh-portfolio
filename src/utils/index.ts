@@ -1,3 +1,15 @@
+/**
+ * CHECK IF THE APPLICATION IS RUNNING ON CLIENT SIDE
+ * @returns boolean
+ */
+export const isClient = (): boolean => {
+    return (
+        typeof window !== "undefined" &&
+        typeof localStorage !== "undefined" &&
+        typeof document !== "undefined"
+    );
+};
+
 function copyToClipboard(text: string) {
     const textarea = document.createElement('textarea');
     textarea.value = text;
@@ -24,8 +36,10 @@ function scaleNumber(percentage: number, max: number = 80, min: number = 0) {
 }
 
 const isMobileDevice = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    return screenWidth <= 768;
+};
+
 
 function calculateInsetValue(currentPercentage: number, highPercentage: number) {
     currentPercentage = Math.max(0, Math.min(100, currentPercentage));

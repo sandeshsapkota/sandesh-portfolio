@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Banner from "@/components/home/banner/banner";
 import RootLayout from "@/components/layout/layout";
+import Bootstrap from "@/components/layout/BootStrapped";
 
 export default function App() {
     const scrollRef = React.useRef<any>();
@@ -34,8 +35,7 @@ export default function App() {
 
     return (
         <RootLayout>
-
-            <Banner scrollRef={scrollRef}/>
+            <Bootstrap><Banner scrollRef={scrollRef}/></Bootstrap>
         </RootLayout>
     );
 }
