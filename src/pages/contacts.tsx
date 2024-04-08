@@ -3,6 +3,7 @@ import Link from "next/link";
 import {Tooltip as ReactTooltip} from "react-tooltip";
 import {copyToClipboard} from "@/utils";
 import {ReactNode, useRef, useState} from "react";
+import SmoothScroll from "@/components/SmoothScroll";
 
 
 const EmailLink = (props: { href: string, text: string }) => {
@@ -155,30 +156,32 @@ const Contacts = () => {
 
 
     return (
-        <RootLayout>
-            <div className="container">
-                <div className="min-h-container">
-                    <div className="grid gap-10 sm:gap-14">
-                        <Section title={'I\'m on social networks .'}>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 lg:w-2/3">
-                                {socialLinks.map((link, index) => (
-                                    <SocialWrapper
-                                        key={index} // Don't forget to add a unique key for each element in the array
-                                        href={link.href}
-                                        label={link.label}
-                                        icon={link.icon}
-                                    />
-                                ))}
-                            </div>
-                        </Section>
+       <SmoothScroll>
+           <RootLayout>
+               <div className="container">
+                   <div className="min-h-container">
+                       <div className="grid gap-10 sm:gap-14">
+                           <Section title={'I\'m on social networks .'}>
+                               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 lg:w-2/3">
+                                   {socialLinks.map((link, index) => (
+                                       <SocialWrapper
+                                           key={index} // Don't forget to add a unique key for each element in the array
+                                           href={link.href}
+                                           label={link.label}
+                                           icon={link.icon}
+                                       />
+                                   ))}
+                               </div>
+                           </Section>
 
-                        <Section title={'Also,  write by email .'}>
-                            <EmailLink href={"mailto:sapkotasandesh88@gmail.com"} text={"sapkotasandesh88@gmail.com"}/>
-                        </Section>
-                    </div>
-                </div>
-            </div>
-        </RootLayout>
+                           <Section title={'Also,  write by email .'}>
+                               <EmailLink href={"mailto:sapkotasandesh88@gmail.com"} text={"sapkotasandesh88@gmail.com"}/>
+                           </Section>
+                       </div>
+                   </div>
+               </div>
+           </RootLayout>
+       </SmoothScroll>
     )
 }
 
