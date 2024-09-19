@@ -13,7 +13,6 @@ interface SectionProps {
 }
 
 const Section = (props: SectionProps) => {
-
     const {title, desc, contribution, linkText, linkUrl, imgUrl} = props
 
     return (
@@ -41,8 +40,7 @@ const Section = (props: SectionProps) => {
                                 </svg>
                             </a>}
                             <p className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap sm:px-4 max-md:text-xs w-[240px] sm:w-auto">{linkUrl}</p>
-                            <a data-tooltip-id="react-tooltip"
-                               data-tooltip-content="visit site"
+                            <a
                                className="group/link flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10"
                                href={linkUrl} target="_blank">
                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
