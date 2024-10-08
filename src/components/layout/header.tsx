@@ -9,7 +9,7 @@ const Header = () => {
 
     const links = [
         {
-            name: 'About me',
+            name: 'Projects',
             route: '/projects',
         },
         {

@@ -9,10 +9,8 @@ const Stacks = () => {
         {name: 'JavaScript', iconName: 'javascript'},
         {name: 'TypeScript', iconName: 'typescript'},
         {name: 'React', iconName: 'react'},
-        {name: 'Next', iconName: 'next'},
         {name: 'Redux', iconName: 'redux'},
         {name: 'Framer Motion', iconName: 'framer'},
-        {name: 'Vue', iconName: 'vue'}
     ];
 
     return (
