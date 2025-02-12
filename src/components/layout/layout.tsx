@@ -18,7 +18,7 @@ const RootLayout = ({children}: { children: ReactNode }) => {
         return (
             <>
                 <Head>
-                    <title> sapkota | front end developer</title>
+                    <title> sapkota | front end engineer</title>
                     <link rel="icon" type="image/x-icon" href="./favicon.svg"/>
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbit&display=swap"/>
                     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"

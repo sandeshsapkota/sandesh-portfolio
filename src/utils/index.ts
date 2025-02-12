@@ -97,10 +97,19 @@ const findFooterVisiblePortion = (): number => {
     return value < 0 ? 0 : value
 }
 
+const isPageScrollable = () => {
+    return document.documentElement.scrollHeight > window.innerHeight;
+};
+
+
 const getPercentage = (bannerParentRef: any) => {
     const height = bannerParentHeight(bannerParentRef)
     const top = bannerParentTop(bannerParentRef) + findFooterVisiblePortion();
-    const scrollableLeft = (height - document.documentElement.clientHeight) + top;
+
+    const useInnerHeight = isMobileDevice();
+    const viewportHeight = useInnerHeight ? window.innerHeight : document.documentElement.clientHeight;
+
+    const scrollableLeft = (height - viewportHeight) + top;
     return (scrollableLeft / height) * 100
 }
 
