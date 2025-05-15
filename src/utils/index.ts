@@ -1,4 +1,6 @@
-function copyToClipboard(text: string) {
+import toast from 'react-hot-toast';
+
+function copyToClipboard(text: string, type: 'email' | 'link' = 'link') {
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.classList.add('clip-board')
@@ -16,6 +18,19 @@ function copyToClipboard(text: string) {
             }
         }, 40);
     }
+    
+    const message = type === 'email' ? 'Email copied to clipboard!' : 'Link copied to clipboard!';
+    
+    toast.success(message, {
+        duration: 2000,
+        style: {
+            background: '#333',
+            color: '#fff',
+            minWidth: '250px',
+            padding: '16px',
+            fontSize: '16px',
+        },
+    });
 }
 
 

@@ -9,8 +9,12 @@ const Header = () => {
 
     const links = [
         {
-            name: 'Projects',
-            route: '/projects',
+            name: 'Products I have worked with',
+            route: '/products',
+        },
+        {
+            name: 'Experiments',
+            route: '/experiments',
         },
         {
             name: 'Contacts',

@@ -31,7 +31,7 @@ const EmailLink = (props: { href: string, text: string }) => {
                 content="Copy"
             />
             <button data-tooltip-id="react-tooltip-1" className="bg-gray-300 text-gray-700 px-4 py-3 rounded"
-                    onClick={() => copyToClipboard(text)}>
+                    onClick={() => copyToClipboard(text, 'email')}>
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="h-5 w-5"
                      style={{translate: "0 4px"}}
                      xmlns="http://www.w3.org/2000/svg">

@@ -28,8 +28,8 @@ const Section = (props: SectionProps) => {
                         <div className="mt-auto flex items-center rounded-md bg-gray-300 overflow-hidden">
                             {linkUrl && <a
                                 data-tooltip-id="react-tooltip"
-                                data-tooltip-content="copy-url"
-                                onClick={() => copyToClipboard(linkUrl)}
+                                data-tooltip-content="Copy URL"
+                                onClick={() => copyToClipboard(linkUrl, 'link')}
                                 className="group/copy flex h-14 w-14 items-center justify-center max-md:h-10 max-md:w-10 cursor-pointer"
                             >
                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
