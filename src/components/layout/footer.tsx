@@ -4,16 +4,11 @@ import Link from "next/link";
 
 const Footer = () => {
     const socialLinks = [
-        {
-            href: "https://www.linkedin.com/in/sandesh-sapkota/",
-            label: "sandesh-sapkota",
-            icon: Linkedin,
-        },
-        {
-            href: "https://api.whatsapp.com/send/?phone=9779748285477&text&type=phone_number&app_absent=0",
-            label: "+977 9748285477",
-            icon: WhatsApp,
-        },
+        // {
+        //     href: "https://www.linkedin.com/in/sandesh-sapkota/",
+        //     label: "sandesh-sapkota",
+        //     icon: Linkedin,
+        // },
         {
             href: "https://discord.com/users/sandesh_hi",
             label: "sandesh_hi",

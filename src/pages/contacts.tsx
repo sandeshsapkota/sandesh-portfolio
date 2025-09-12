@@ -6,8 +6,6 @@ import {ReactNode, useRef, useState} from "react";
 
 
 const EmailLink = (props: { href: string, text: string }) => {
-
-
     const {href, text} = props
     return (
         <div className="flex gap-4 md:w-1/4">
@@ -126,16 +124,6 @@ const Section = (props: { title: string, children: ReactNode }) => {
 const Contacts = () => {
 
     const socialLinks = [
-        {
-            href: "https://www.linkedin.com/in/sandesh-sapkota/",
-            label: "sandesh-sapkota",
-            icon: Linkedin,
-        },
-        {
-            href: "https://api.whatsapp.com/send/?phone=9779748285477&text&type=phone_number&app_absent=0",
-            label: "+977 9748285477",
-            icon: WhatsApp,
-        },
         {
             href: "https://discord.com/users/sandesh_hi",
             label: "sandesh_hi",
