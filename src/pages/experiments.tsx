@@ -13,7 +13,6 @@ const Experiments = () => {
                             "A web-based tool for reviewing and analyzing 3D models. Built with Three.js and React, this application allows users to view, and interact with 3D models in real-time.",
                             "Features include model rotation, zoom, and detailed inspection capabilities."
                         ]}
-                        contribution=""
                         linkText="Visit 3D Model Reviewer"
                         imgUrl="/3d-model.png"
                     />

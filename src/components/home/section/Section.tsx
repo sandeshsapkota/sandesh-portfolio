@@ -6,14 +6,13 @@ import {Tooltip} from "react-tooltip";
 interface SectionProps {
     title: string,
     desc: Array<string>,
-    contribution: string,
     linkUrl?: string,
     linkText?: string,
     imgUrl: string
 }
 
 const Section = (props: SectionProps) => {
-    const {title, desc, contribution, linkText, linkUrl, imgUrl} = props
+    const {title, desc,  linkText, linkUrl, imgUrl} = props
 
     return (
         <section className="project-section">
@@ -24,7 +23,6 @@ const Section = (props: SectionProps) => {
                         <div className="project-desc-wrapper">
                             {desc.map((item, i) => <p className="project-desc" key={i}>{item}</p>)}
                         </div>
-                        <p className={classNames("project-contribution -mt-2")}>{contribution}</p>
                         <div className="mt-auto flex items-center rounded-md bg-gray-300 overflow-hidden">
                             {linkUrl && <a
                                 data-tooltip-id="react-tooltip"
