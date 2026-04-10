@@ -125,9 +125,9 @@ const Contacts = () => {
 
     const socialLinks = [
         {
-            href: "https://discord.com/users/sandesh_hi",
-            label: "sandesh_hi",
-            icon: Discord,
+            href: "https://www.linkedin.com/in/sandesh-sapkota/",
+            label: "sandesh-sapkota",
+            icon: Linkedin,
         },
         {
             href: "https://github.com/sandeshsapkota",

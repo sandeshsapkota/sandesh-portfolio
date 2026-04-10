@@ -4,15 +4,10 @@ import Link from "next/link";
 
 const Footer = () => {
     const socialLinks = [
-        // {
-        //     href: "https://www.linkedin.com/in/sandesh-sapkota/",
-        //     label: "sandesh-sapkota",
-        //     icon: Linkedin,
-        // },
         {
-            href: "https://discord.com/users/sandesh_hi",
-            label: "sandesh_hi",
-            icon: Discord,
+            href: "https://www.linkedin.com/in/sandesh-sapkota/",
+            label: "sandesh-sapkota",
+            icon: Linkedin,
         },
         {
             href: "https://github.com/sandeshsapkota",
@@ -49,7 +44,7 @@ const Footer = () => {
                         </svg>
                     </Link>
                     <div>
-                        2023 <span>|</span> SANDESH SAPKOTA
+                        2026 <span>|</span> SANDESH SAPKOTA
                     </div>
                 </div>
                 <nav className="footer-nav -ml-3 sm:ml-auto">
